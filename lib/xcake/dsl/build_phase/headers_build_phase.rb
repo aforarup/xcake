@@ -17,6 +17,21 @@ module Xcake
       yield(self) if block_given?
     end
 
+    def public_header_files(reg_exp)
+      paths_without_directories = Dir.glob(reg_exp).reject do |f|
+        file_ext = File.extname(f)
+        allowed_extensions = [
+            '.h',
+            '.hpp'
+        ]
+        File.directory?(f) && !allowed_extensions.include?(file_ext)
+      end
+      paths = paths_without_directories.map do |f|
+        Pathname.new(f).cleanpath.to_s
+      end
+      @public |= paths
+    end
+
     def build_phase_type
       Xcodeproj::Project::Object::PBXHeadersBuildPhase
     end
