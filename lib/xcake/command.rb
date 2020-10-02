@@ -5,7 +5,7 @@ module Xcake
     require 'xcake/command/init'
     require 'xcake/command/make'
     require 'xcake/command/echo'
-    
+
     self.abstract_command = true
     self.command = 'xcake'
     self.version = VERSION
