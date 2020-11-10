@@ -34,6 +34,20 @@ module Xcake
       phase
     end
 
+    # Creates a new Copy Bundle Resources build phase for the
+    # target
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the build phase through the DSL.
+    #
+    # @return [CopyBundleResourcesBuildPhase] the new xcode build phase
+    #
+    def copy_resources_build_phase(&block)
+      phase = CopyBundleResourcesBuildPhase.new(&block)
+      build_phases << phase
+      phase
+    end
+
     # Creates a new Shell Script build phase for the
     # target before all of the other build phases
     #

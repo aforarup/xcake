@@ -48,6 +48,7 @@ require 'xcake/dsl/build_phase'
 require 'xcake/dsl/build_phase/headers_build_phase'
 require 'xcake/dsl/build_phase/shell_script_build_phase'
 require 'xcake/dsl/build_phase/copy_files_build_phase'
+require 'xcake/dsl/build_phase/copy_bundle_resources_phase'
 
 module Xcake
 end
